@@ -2,20 +2,19 @@ import pickle
 import sys
 import pandas as pd
 from sklearn import svm
+from sklearn.ensemble import RandomForestClassifier
 
 def load_data(file_dir):
 	df = pd.read_csv(file_dir)
-	# y = df['label'].tolist()
-	# X = df.drop('label', axis=1).values.tolist()
-	y = df['point_granularity'].tolist()
-	X = df[['eq_site_limit','hu_site_limit']].values.tolist()
-	print(X)
+	y = df['label'].tolist()
+	X = df.drop('label', axis=1).values.tolist()
 
 	return X, y
 
 
 def train(X, y):
-	model = svm.SVC(kernel='poly', C=1.0)
+	# model = svm.SVC(kernel='poly', C=1.0)
+	model = RandomForestClassifier()
 	model.fit(X, y)
 
 	return model
