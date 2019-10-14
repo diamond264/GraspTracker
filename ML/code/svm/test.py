@@ -11,7 +11,7 @@ def load_data(file_dir):
 
 
 def load_model(model_dir):
-    with open(filename, 'rb') as f:
+    with open(model_dir, 'rb') as f:
         model = pickle.load(f)
     return model
 
