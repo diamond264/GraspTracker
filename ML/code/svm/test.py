@@ -4,7 +4,7 @@ import pandas as pd
 
 def load_data(file_dir):
     df = pd.read_csv(file_dir)
-    df = df.loc[len(df)//5*4:]
+    # df = df.loc[len(df)//5*4:]
     y = df['label'].tolist()
     X = df.drop('label', axis=1).values.tolist()
 
