@@ -1,5 +1,6 @@
 import pickle
 import sys
+import pandas as pd
 
 def load_data(file_dir):
     df = pd.read_csv(file_dir)
