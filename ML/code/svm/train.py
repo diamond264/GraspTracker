@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 def load_data(file_dir):
 	df = pd.read_csv(file_dir)
-	df.sample(frac=1)
+	df = df.sample(frac=1)
 	df_train = df.loc[:len(df)//5*4]
 	y = df_train['label'].tolist()
 	X = df_train.drop('label', axis=1).values.tolist()
