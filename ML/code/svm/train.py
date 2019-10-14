@@ -29,6 +29,6 @@ def save_model(model, filename):
 
 
 if __name__ == "__main__":
-	X, y = load_data(sys.argv[2])
+	X, y = load_data(sys.argv[3])
 	model = train(sys.argv[1], X, y)
-	save_model(model, sys.argv[3])
+	save_model(model, sys.argv[2])
