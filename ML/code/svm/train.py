@@ -14,6 +14,7 @@ def load_data(file_dir):
 	df_test = df.loc[len(df)//5*4:]
 	y_test = df_test['label'].tolist()
 	X_test = df_test.drop('label', axis=1).values.tolist()
+	print(y_test)
 
 	return X, y, X_test, y_test
 
@@ -24,7 +25,7 @@ def train(mode, X, y, X_test, y_test):
 	if mode == "randomforest":
 		model = RandomForestClassifier()
 	model.fit(X, y)
-	model.score(X_test, y_test)
+	print("테스트 세트 정확도: {:.2f}".format(model.score(X_test, y_test)))
 
 	return model
 
