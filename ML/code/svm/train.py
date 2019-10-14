@@ -13,9 +13,11 @@ def load_data(file_dir):
 	return X, y
 
 
-def train(X, y):
-	# model = svm.SVC(kernel='poly', C=1.0)
-	model = RandomForestClassifier()
+def train(mode, X, y):
+	if mode == "svm":
+		model = svm.SVC(kernel='poly', C=1.0)
+	if mode == "randomforest":
+		model = RandomForestClassifier()
 	model.fit(X, y)
 
 	return model
@@ -27,6 +29,6 @@ def save_model(model, filename):
 
 
 if __name__ == "__main__":
-	X, y = load_data(sys.argv[1])
-	model = train(X, y)
-	save_model(model, sys.argv[2])
+	X, y = load_data(sys.argv[2])
+	model = train(sys.argv[1], X, y)
+	save_model(model, sys.argv[3])
